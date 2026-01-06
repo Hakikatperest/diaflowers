@@ -73,6 +73,13 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            margin-left: 20px; /* Logo sağa kaydırıldı */
+        }
+
+        .logo-icon {
+            color: var(--pink);
+            font-size: 1.8rem;
+            margin-right: 10px;
         }
 
         .logo-text {
@@ -261,6 +268,7 @@
         .product-image {
             height: 220px;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
@@ -272,6 +280,41 @@
 
         .product-card:hover .product-image img {
             transform: scale(1.05);
+        }
+
+        /* Thumbnail Gallery */
+        .thumbnail-gallery {
+            display: flex;
+            padding: 10px;
+            background-color: var(--light-gray);
+            border-top: 1px solid #eee;
+            overflow-x: auto;
+            gap: 8px;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .thumbnail:hover {
+            border-color: var(--pink);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary-blue);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
@@ -315,6 +358,7 @@
             transition: var(--transition);
             flex: 1;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         .btn-whatsapp {
@@ -438,6 +482,8 @@
         }
 
         .footer-logo {
+            display: flex;
+            align-items: center;
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
@@ -446,6 +492,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .footer-logo-icon {
+            color: var(--pink);
+            font-size: 1.8rem;
+            margin-right: 10px;
         }
 
         .footer-links h4, .footer-contact h4 {
@@ -565,9 +617,14 @@
             }
             
             .fixed-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
             }
         }
 
@@ -587,6 +644,11 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .thumbnail {
+                width: 50px;
+                height: 50px;
+            }
         }
     </style>
 </head>
@@ -595,6 +657,7 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
+                <i class="fas fa-bouquet logo-icon"></i>
                 <span class="logo-text">Serik DİA Flowers</span>
             </a>
             
@@ -643,11 +706,21 @@
             
             <div class="products-grid">
                 <!-- İthal Renkli Orkide -->
-                <div class="product-card" id="orkideler">
+                <div class="product-card" id="orkideler" data-category="orkideler">
                     <div class="product-image">
-                        <a href="images/ithalrenkliorkide1.jpeg" data-lightbox="orkide" data-title="İthal Renkli Orkide">
-                            <img src="images/ithalrenkliorkide1.jpeg" alt="İthal Renkli Orkide">
+                        <a href="images/ithalrenkliorkide1.jpeg" data-lightbox="orkide-group" data-title="İthal Renkli Orkide">
+                            <img src="images/ithalrenkliorkide1.jpeg" alt="İthal Renkli Orkide" class="main-image">
                         </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/ithalrenkliorkide1.jpeg">
+                            <img src="images/ithalrenkliorkide1.jpeg" alt="İthal Renkli Orkide 1">
+                        </div>
+                        <div class="thumbnail" data-image="images/ithalrenkliorkide2.jpeg">
+                            <img src="images/ithalrenkliorkide2.jpeg" alt="İthal Renkli Orkide 2">
+                        </div>
+                        <!-- Hidden lightbox links -->
+                        <a href="images/ithalrenkliorkide2.jpeg" data-lightbox="orkide-group" data-title="İthal Renkli Orkide" style="display:none;"></a>
                     </div>
                     <div class="product-info">
                         <h3>İthal Renkli Orkide</h3>
@@ -655,7 +728,86 @@
                         <p class="product-description">Özel ithal renkli orkide, uzun ömürlü ve şık bir hediye seçeneği.</p>
                         <div class="product-actions">
                             <a href="https://wa.me/905346032115?text=İthal%20Renkli%20Orkide%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- İthal Orkideler -->
+                <div class="product-card" id="orkideler" data-category="orkideler">
+                    <div class="product-image">
+                        <a href="images/orkide1.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler">
+                            <img src="images/orkide1.jpeg" alt="İthal Orkideler" class="main-image">
+                        </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/orkide1.jpeg">
+                            <img src="images/orkide1.jpeg" alt="İthal Orkide 1">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide2.jpeg">
+                            <img src="images/orkide2.jpeg" alt="İthal Orkide 2">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide3.jpeg">
+                            <img src="images/orkide3.jpeg" alt="İthal Orkide 3">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide4.jpeg">
+                            <img src="images/orkide4.jpeg" alt="İthal Orkide 4">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide5.jpeg">
+                            <img src="images/orkide5.jpeg" alt="İthal Orkide 5">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide6.jpeg">
+                            <img src="images/orkide6.jpeg" alt="İthal Orkide 6">
+                        </div>
+                        <div class="thumbnail" data-image="images/orkide7.jpeg">
+                            <img src="images/orkide7.jpeg" alt="İthal Orkide 7">
+                        </div>
+                        <!-- Hidden lightbox links -->
+                        <a href="images/orkide2.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                        <a href="images/orkide3.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                        <a href="images/orkide4.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                        <a href="images/orkide5.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                        <a href="images/orkide6.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                        <a href="images/orkide7.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
+                    </div>
+                    <div class="product-info">
+                        <h3>İthal Orkideler</h3>
+                        <div class="price">1.700 TL</div>
+                        <p class="product-description">Çeşitli renk ve boyutlarda ithal orkideler.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=İthal%20Orkideler%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 15 İthal Gül -->
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
+                    <div class="product-image">
+                        <a href="images/15ithal.jpeg" data-lightbox="15ithal-group" data-title="15 İthal Gül Buketi">
+                            <img src="images/15ithal.jpeg" alt="15 İthal Gül" class="main-image">
+                        </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/15ithal.jpeg">
+                            <img src="images/15ithal.jpeg" alt="15 İthal Gül">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>15 İthal Gül Buketi</h3>
+                        <div class="price">2.300 TL</div>
+                        <p class="product-description">15 adet ithal gülden oluşan özel buket.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=15%20İthal%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -665,11 +817,25 @@
                 </div>
                 
                 <!-- 21 Güllü Buket -->
-                <div class="product-card" id="gul-buketleri">
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
                     <div class="product-image">
-                        <a href="images/21gullu1.jpeg" data-lightbox="gul-buket" data-title="21 Güllü Buket">
-                            <img src="images/21gullu1.jpeg" alt="21 Güllü Buket">
+                        <a href="images/21gullu1.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket">
+                            <img src="images/21gullu1.jpeg" alt="21 Güllü Buket" class="main-image">
                         </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/21gullu1.jpeg">
+                            <img src="images/21gullu1.jpeg" alt="21 Güllü Buket 1">
+                        </div>
+                        <div class="thumbnail" data-image="images/21gullu2.jpeg">
+                            <img src="images/21gullu2.jpeg" alt="21 Güllü Buket 2">
+                        </div>
+                        <div class="thumbnail" data-image="images/21gullu3.jpeg">
+                            <img src="images/21gullu3.jpeg" alt="21 Güllü Buket 3">
+                        </div>
+                        <!-- Hidden lightbox links -->
+                        <a href="images/21gullu2.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket" style="display:none;"></a>
+                        <a href="images/21gullu3.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket" style="display:none;"></a>
                     </div>
                     <div class="product-info">
                         <h3>21 Güllü Buket</h3>
@@ -677,7 +843,7 @@
                         <p class="product-description">Özel günler için hazırlanmış 21 adet gülden oluşan lüks buket.</p>
                         <div class="product-actions">
                             <a href="https://wa.me/905346032115?text=21%20Güllü%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -686,20 +852,106 @@
                     </div>
                 </div>
                 
-                <!-- İthal Orta Boy Buket -->
-                <div class="product-card" id="ithal-buketler">
+                <!-- 51 Pembe Gül Buketi -->
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
                     <div class="product-image">
-                        <a href="images/ithalorta.jpeg" data-lightbox="ithal-buket" data-title="İthal Orta Boy Buket">
-                            <img src="images/ithalorta.jpeg" alt="İthal Orta Boy Buket">
+                        <a href="images/51pembe.jpeg" data-lightbox="51pembe-group" data-title="51 Pembe Gül Buketi">
+                            <img src="images/51pembe.jpeg" alt="51 Pembe Gül Buketi" class="main-image">
                         </a>
                     </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/51pembe.jpeg">
+                            <img src="images/51pembe.jpeg" alt="51 Pembe Gül Buketi">
+                        </div>
+                    </div>
                     <div class="product-info">
-                        <h3>İthal Orta Boy Buket</h3>
-                        <div class="price">3.300 TL</div>
-                        <p class="product-description">İthal çiçeklerle hazırlanmış, orta boy şık buket.</p>
+                        <h3>51 Pembe Gül Buketi (60 cm)</h3>
+                        <div class="price">7.000 TL</div>
+                        <p class="product-description">60 cm boyunda, 51 adet pembe gülden oluşan lüks buket.</p>
                         <div class="product-actions">
-                            <a href="https://wa.me/905346032115?text=İthal%20Orta%20Boy%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            <a href="https://wa.me/905346032115?text=51%20Pembe%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 101 Rodos Gül Buketi -->
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
+                    <div class="product-image">
+                        <a href="images/rodos1.jpeg" data-lightbox="rodos-group" data-title="101 Rodos Gül Buketi">
+                            <img src="images/rodos1.jpeg" alt="101 Rodos Gül Buketi" class="main-image">
+                        </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/rodos1.jpeg">
+                            <img src="images/rodos1.jpeg" alt="101 Rodos Gül Buketi">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>101 Rodos Gül Buketi (60 cm)</h3>
+                        <div class="price">8.600 TL</div>
+                        <p class="product-description">60 cm boyunda, 101 adet Rodos gülünden oluşan premium buket.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=101%20Rodos%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dokuz Güllü Renkli Buket -->
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
+                    <div class="product-image">
+                        <a href="images/dokuz.jpeg" data-lightbox="dokuz-group" data-title="Dokuz Güllü Renkli Buket">
+                            <img src="images/dokuz.jpeg" alt="Dokuz Güllü Renkli Buket" class="main-image">
+                        </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/dokuz.jpeg">
+                            <img src="images/dokuz.jpeg" alt="Dokuz Güllü Renkli Buket">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dokuz Güllü Renkli Buket</h3>
+                        <div class="price">1.300 TL</div>
+                        <p class="product-description">9 adet renkli gülden oluşan canlı ve neşeli buket.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Dokuz%20Güllü%20Renkli%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Erengül Buketi -->
+                <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
+                    <div class="product-image">
+                        <a href="images/erengul.jpeg" data-lightbox="erengul-group" data-title="Erengül Buketi">
+                            <img src="images/erengul.jpeg" alt="Erengül Buketi" class="main-image">
+                        </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/erengul.jpeg">
+                            <img src="images/erengul.jpeg" alt="Erengül Buketi">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Erengül Buketi</h3>
+                        <div class="price">2.500 TL</div>
+                        <p class="product-description">Özel erengül çiçekleri ile hazırlanmış şık buket.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Erengül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -711,9 +963,14 @@
                 <!-- Kalp Kutu 31 Güllü Aranjman -->
                 <div class="product-card" id="kutu-aranjman">
                     <div class="product-image">
-                        <a href="images/kalp1.jpeg" data-lightbox="kutu-aranjman" data-title="Kalp Kutu 31 Güllü Aranjman">
-                            <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman">
+                        <a href="images/kalp1.jpeg" data-lightbox="kalp-group" data-title="Kalp Kutu 31 Güllü Aranjman">
+                            <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman" class="main-image">
                         </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/kalp1.jpeg">
+                            <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman">
+                        </div>
                     </div>
                     <div class="product-info">
                         <h3>Kalp Kutu 31 Güllü Aranjman</h3>
@@ -721,7 +978,7 @@
                         <p class="product-description">Kalp şeklinde kutuda 31 adet gülden oluşan özel aranjman.</p>
                         <div class="product-actions">
                             <a href="https://wa.me/905346032115?text=Kalp%20Kutu%2031%20Güllü%20Aranjman%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -733,9 +990,14 @@
                 <!-- Kokinalı Ayıcıklı Buket -->
                 <div class="product-card" id="ozel-urunler">
                     <div class="product-image">
-                        <a href="images/kokoinali.jpeg" data-lightbox="ozel-urun" data-title="Kokinalı Ayıcıklı Buket">
-                            <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket">
+                        <a href="images/kokoinali.jpeg" data-lightbox="kokoinali-group" data-title="Kokinalı Ayıcıklı Buket">
+                            <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket" class="main-image">
                         </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/kokoinali.jpeg">
+                            <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket">
+                        </div>
                     </div>
                     <div class="product-info">
                         <h3>Kokinalı Ayıcıklı Buket</h3>
@@ -743,7 +1005,7 @@
                         <p class="product-description">Sevdiklerinize özel, kokinalı ayıcıklı buket.</p>
                         <div class="product-actions">
                             <a href="https://wa.me/905346032115?text=Kokinalı%20Ayıcıklı%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -755,9 +1017,35 @@
                 <!-- Teraryum Çalışması -->
                 <div class="product-card" id="teraryum">
                     <div class="product-image">
-                        <a href="images/tereryum1.jpeg" data-lightbox="teraryum" data-title="Teraryum Çalışması (Sukulent)">
-                            <img src="images/tereryum1.jpeg" alt="Teraryum Çalışması">
+                        <a href="images/tereryum1.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması (Sukulent)">
+                            <img src="images/tereryum1.jpeg" alt="Teraryum Çalışması" class="main-image">
                         </a>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-image="images/tereryum1.jpeg">
+                            <img src="images/tereryum1.jpeg" alt="Teraryum 1">
+                        </div>
+                        <div class="thumbnail" data-image="images/tereryum2.jpeg">
+                            <img src="images/tereryum2.jpeg" alt="Teraryum 2">
+                        </div>
+                        <div class="thumbnail" data-image="images/tereryum3.jpeg">
+                            <img src="images/tereryum3.jpeg" alt="Teraryum 3">
+                        </div>
+                        <div class="thumbnail" data-image="images/tereryum4.jpeg">
+                            <img src="images/tereryum4.jpeg" alt="Teraryum 4">
+                        </div>
+                        <div class="thumbnail" data-image="images/tereryum5.jpeg">
+                            <img src="images/tereryum5.jpeg" alt="Teraryum 5">
+                        </div>
+                        <div class="thumbnail" data-image="images/tereryum6.jpeg">
+                            <img src="images/tereryum6.jpeg" alt="Teraryum 6">
+                        </div>
+                        <!-- Hidden lightbox links -->
+                        <a href="images/tereryum2.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
+                        <a href="images/tereryum3.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
+                        <a href="images/tereryum4.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
+                        <a href="images/tereryum5.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
+                        <a href="images/tereryum6.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
                     </div>
                     <div class="product-info">
                         <h3>Teraryum Çalışması</h3>
@@ -765,51 +1053,7 @@
                         <p class="product-description">Sukulentlerle hazırlanmış, özel teraryum çalışması.</p>
                         <div class="product-actions">
                             <a href="https://wa.me/905346032115?text=Teraryum%20Çalışması%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                            <a href="tel:05346032115" class="btn btn-call">
-                                <i class="fas fa-phone"></i> Ara
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gelin Eli -->
-                <div class="product-card" id="gelin-urun">
-                    <div class="product-image">
-                        <a href="images/gelin1.jpeg" data-lightbox="gelin" data-title="Gelin Eli">
-                            <img src="images/gelin1.jpeg" alt="Gelin Eli">
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <h3>Gelin Eli</h3>
-                        <div class="price">3.500 TL</div>
-                        <p class="product-description">Özel gününüz için hazırlanmış gelin eli buketi.</p>
-                        <div class="product-actions">
-                            <a href="https://wa.me/905346032115?text=Gelin%20Eli%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                            <a href="tel:05346032115" class="btn btn-call">
-                                <i class="fas fa-phone"></i> Ara
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sigara Buketi -->
-                <div class="product-card" id="ozel-icerik">
-                    <div class="product-image">
-                        <a href="images/sigara.jpeg" data-lightbox="sigara" data-title="Sigara Buketi (10 paket + 4 çikolata)">
-                            <img src="images/sigara.jpeg" alt="Sigara Buketi">
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sigara Buketi</h3>
-                        <div class="price">2.100 TL</div>
-                        <p class="product-description">10 paket sigara + 4 çikolata ile hazırlanmış özel buket.</p>
-                        <div class="product-actions">
-                            <a href="https://wa.me/905346032115?text=Sigara%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş Ver
                             </a>
                             <a href="tel:05346032115" class="btn btn-call">
                                 <i class="fas fa-phone"></i> Ara
@@ -850,7 +1094,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <div class="footer-logo">Serik DİA Flowers</div>
+                    <div class="footer-logo">
+                        <i class="fas fa-bouquet footer-logo-icon"></i>
+                        <span>Serik DİA Flowers</span>
+                    </div>
                     <p>Serik'in en özel çiçekleri için doğru adres. Özel günlerinizde yanınızdayız.</p>
                 </div>
                 
@@ -881,10 +1128,10 @@
 
     <!-- Fixed Contact Buttons -->
     <div class="fixed-contact">
-        <a href="tel:05346032115" class="fixed-btn fixed-call">
+        <a href="tel:05346032115" class="fixed-btn fixed-call" title="Hemen Ara">
             <i class="fas fa-phone"></i>
         </a>
-        <a href="https://wa.me/905346032115" class="fixed-btn fixed-whatsapp" target="_blank">
+        <a href="https://wa.me/905346032115" class="fixed-btn fixed-whatsapp" target="_blank" title="WhatsApp'tan Sipariş Ver">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -934,6 +1181,29 @@
             'albumLabel': "Resim %1 / %2"
         });
         
+        // Thumbnail gallery functionality
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const mainImage = productCard.querySelector('.main-image');
+                const mainImageLink = productCard.querySelector('.product-image a');
+                
+                // Update active thumbnail
+                productCard.querySelectorAll('.thumbnail').forEach(t => {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Update main image
+                const newImageSrc = this.getAttribute('data-image');
+                mainImage.src = newImageSrc;
+                mainImageLink.href = newImageSrc;
+                
+                // Update lightbox data
+                mainImageLink.setAttribute('data-lightbox', this.closest('.thumbnail-gallery').previousElementSibling.querySelector('a').getAttribute('data-lightbox'));
+            });
+        });
+        
         // Add animation to product cards on scroll
         function animateOnScroll() {
             const cards = document.querySelectorAll('.product-card');
@@ -959,6 +1229,14 @@
         // Run animation on load and scroll
         window.addEventListener('load', animateOnScroll);
         window.addEventListener('scroll', animateOnScroll);
+        
+        // Initialize all thumbnails
+        document.querySelectorAll('.thumbnail-gallery').forEach(gallery => {
+            const firstThumb = gallery.querySelector('.thumbnail');
+            if(firstThumb) {
+                firstThumb.classList.add('active');
+            }
+        });
     </script>
 </body>
 </html>
