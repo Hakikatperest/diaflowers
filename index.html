@@ -247,8 +247,8 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
             margin-bottom: 80px;
         }
 
@@ -259,7 +259,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             display: flex;
-            min-height: 350px;
+            flex-direction: column;
+            height: 100%;
         }
 
         .product-card:hover {
@@ -267,13 +268,8 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .product-content {
-            display: flex;
-            width: 100%;
-        }
-
         .product-image-container {
-            flex: 1.2;
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
@@ -297,11 +293,10 @@
         }
 
         .product-info-container {
-            flex: 0.8;
             padding: 25px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            flex-grow: 1;
         }
 
         .product-info h3 {
@@ -322,13 +317,13 @@
             margin-bottom: 20px;
             font-size: 1rem;
             line-height: 1.5;
+            flex-grow: 1;
         }
 
         .product-actions {
             display: flex;
             justify-content: space-between;
             gap: 10px;
-            margin-top: auto;
         }
 
         .btn {
@@ -371,7 +366,6 @@
             display: flex;
             padding: 10px;
             background-color: var(--light-gray);
-            border-top: 1px solid #eee;
             overflow-x: auto;
             gap: 8px;
             justify-content: center;
@@ -575,10 +569,6 @@
             .section-title h2 {
                 font-size: 2rem;
             }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-            }
         }
 
         @media (max-width: 768px) {
@@ -633,20 +623,7 @@
             }
             
             .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-card {
-                flex-direction: column;
-                min-height: auto;
-            }
-            
-            .product-content {
-                flex-direction: column;
-            }
-            
-            .product-image-container {
-                height: 300px;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
             .fixed-contact {
@@ -667,6 +644,10 @@
         }
 
         @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .hero {
                 padding: 60px 0;
             }
@@ -745,28 +726,11 @@
             <div class="products-grid">
                 <!-- İthal Orkideler (1. sıraya alındı) -->
                 <div class="product-card" id="orkideler" data-category="orkideler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>İthal Orkideler</h3>
-                                <div class="price">1.700 TL</div>
-                                <p class="product-description">Çeşitli renk ve boyutlarda ithal orkideler. Uzun ömürlü ve şık bir hediye seçeneği.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=İthal%20Orkideler%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/orkide1.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler">
-                                    <img src="images/orkide1.jpeg" alt="İthal Orkideler" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/orkide1.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler">
+                                <img src="images/orkide1.jpeg" alt="İthal Orkideler" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -799,32 +763,30 @@
                         <a href="images/orkide6.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
                         <a href="images/orkide7.jpeg" data-lightbox="ithal-orkide-group" data-title="İthal Orkideler" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>İthal Orkideler</h3>
+                            <div class="price">1.700 TL</div>
+                            <p class="product-description">Çeşitli renk ve boyutlarda ithal orkideler. Uzun ömürlü ve şık bir hediye seçeneği.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=İthal%20Orkideler%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- İthal Renkli Orkide -->
                 <div class="product-card" id="orkideler" data-category="orkideler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>İthal Renkli Orkide</h3>
-                                <div class="price">2.200 TL</div>
-                                <p class="product-description">Özel ithal renkli orkide, uzun ömürlü ve şık bir hediye seçeneği. Özel günler için mükemmel bir tercih.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=İthal%20Renkli%20Orkide%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/ithalrenkliorkide1.jpeg" data-lightbox="orkide-group" data-title="İthal Renkli Orkide">
-                                    <img src="images/ithalrenkliorkide1.jpeg" alt="İthal Renkli Orkide" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/ithalrenkliorkide1.jpeg" data-lightbox="orkide-group" data-title="İthal Renkli Orkide">
+                                <img src="images/ithalrenkliorkide1.jpeg" alt="İthal Renkli Orkide" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -837,32 +799,30 @@
                         <!-- Hidden lightbox links -->
                         <a href="images/ithalrenkliorkide2.jpeg" data-lightbox="orkide-group" data-title="İthal Renkli Orkide" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>İthal Renkli Orkide</h3>
+                            <div class="price">2.200 TL</div>
+                            <p class="product-description">Özel ithal renkli orkide, uzun ömürlü ve şık bir hediye seçeneği. Özel günler için mükemmel bir tercih.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=İthal%20Renkli%20Orkide%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 15 İthal Gül -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>15 İthal Gül Buketi</h3>
-                                <div class="price">2.300 TL</div>
-                                <p class="product-description">15 adet ithal gülden oluşan özel buket. Romantik günler için mükemmel bir seçim.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=15%20İthal%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/15ithal.jpeg" data-lightbox="15ithal-group" data-title="15 İthal Gül Buketi">
-                                    <img src="images/15ithal.jpeg" alt="15 İthal Gül" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/15ithal.jpeg" data-lightbox="15ithal-group" data-title="15 İthal Gül Buketi">
+                                <img src="images/15ithal.jpeg" alt="15 İthal Gül" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -870,32 +830,30 @@
                             <img src="images/15ithal.jpeg" alt="15 İthal Gül">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>15 İthal Gül Buketi</h3>
+                            <div class="price">2.300 TL</div>
+                            <p class="product-description">15 adet ithal gülden oluşan özel buket. Romantik günler için mükemmel bir seçim.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=15%20İthal%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 21 Güllü Buket -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>21 Güllü Buket</h3>
-                                <div class="price">2.600 TL</div>
-                                <p class="product-description">Özel günler için hazırlanmış 21 adet gülden oluşan lüks buket. Sevdiklerinize özel bir sürpriz.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=21%20Güllü%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/21gullu1.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket">
-                                    <img src="images/21gullu1.jpeg" alt="21 Güllü Buket" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/21gullu1.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket">
+                                <img src="images/21gullu1.jpeg" alt="21 Güllü Buket" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -912,32 +870,30 @@
                         <a href="images/21gullu2.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket" style="display:none;"></a>
                         <a href="images/21gullu3.jpeg" data-lightbox="21gullu-group" data-title="21 Güllü Buket" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>21 Güllü Buket</h3>
+                            <div class="price">2.600 TL</div>
+                            <p class="product-description">Özel günler için hazırlanmış 21 adet gülden oluşan lüks buket. Sevdiklerinize özel bir sürpriz.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=21%20Güllü%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 51 Pembe Gül Buketi -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>51 Pembe Gül Buketi (60 cm)</h3>
-                                <div class="price">7.000 TL</div>
-                                <p class="product-description">60 cm boyunda, 51 adet pembe gülden oluşan lüks buket. Büyük özel günler için muhteşem bir hediye.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=51%20Pembe%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/51pembe.jpeg" data-lightbox="51pembe-group" data-title="51 Pembe Gül Buketi">
-                                    <img src="images/51pembe.jpeg" alt="51 Pembe Gül Buketi" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/51pembe.jpeg" data-lightbox="51pembe-group" data-title="51 Pembe Gül Buketi">
+                                <img src="images/51pembe.jpeg" alt="51 Pembe Gül Buketi" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -945,32 +901,30 @@
                             <img src="images/51pembe.jpeg" alt="51 Pembe Gül Buketi">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>51 Pembe Gül Buketi (60 cm)</h3>
+                            <div class="price">7.000 TL</div>
+                            <p class="product-description">60 cm boyunda, 51 adet pembe gülden oluşan lüks buket. Büyük özel günler için muhteşem bir hediye.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=51%20Pembe%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 101 Rodos Gül Buketi -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>101 Rodos Gül Buketi (60 cm)</h3>
-                                <div class="price">8.600 TL</div>
-                                <p class="product-description">60 cm boyunda, 101 adet Rodos gülünden oluşan premium buket. Unutulmaz anlar için unutulmaz bir hediye.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=101%20Rodos%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/rodos1.jpeg" data-lightbox="rodos-group" data-title="101 Rodos Gül Buketi">
-                                    <img src="images/rodos1.jpeg" alt="101 Rodos Gül Buketi" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/rodos1.jpeg" data-lightbox="rodos-group" data-title="101 Rodos Gül Buketi">
+                                <img src="images/rodos1.jpeg" alt="101 Rodos Gül Buketi" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -978,32 +932,30 @@
                             <img src="images/rodos1.jpeg" alt="101 Rodos Gül Buketi">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>101 Rodos Gül Buketi (60 cm)</h3>
+                            <div class="price">8.600 TL</div>
+                            <p class="product-description">60 cm boyunda, 101 adet Rodos gülünden oluşan premium buket. Unutulmaz anlar için unutulmaz bir hediye.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=101%20Rodos%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Dokuz Güllü Renkli Buket -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Dokuz Güllü Renkli Buket</h3>
-                                <div class="price">1.300 TL</div>
-                                <p class="product-description">9 adet renkli gülden oluşan canlı ve neşeli buket. Küçük sürprizler için ideal.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Dokuz%20Güllü%20Renkli%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/dokuz.jpeg" data-lightbox="dokuz-group" data-title="Dokuz Güllü Renkli Buket">
-                                    <img src="images/dokuz.jpeg" alt="Dokuz Güllü Renkli Buket" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/dokuz.jpeg" data-lightbox="dokuz-group" data-title="Dokuz Güllü Renkli Buket">
+                                <img src="images/dokuz.jpeg" alt="Dokuz Güllü Renkli Buket" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1011,32 +963,30 @@
                             <img src="images/dokuz.jpeg" alt="Dokuz Güllü Renkli Buket">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Dokuz Güllü Renkli Buket</h3>
+                            <div class="price">1.300 TL</div>
+                            <p class="product-description">9 adet renkli gülden oluşan canlı ve neşeli buket. Küçük sürprizler için ideal.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Dokuz%20Güllü%20Renkli%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Erengül Buketi -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Erengül Buketi</h3>
-                                <div class="price">2.500 TL</div>
-                                <p class="product-description">Özel erengül çiçekleri ile hazırlanmış şık buket. Zarif ve farklı bir hediye arayanlar için.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Erengül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/erengul.jpeg" data-lightbox="erengul-group" data-title="Erengül Buketi">
-                                    <img src="images/erengul.jpeg" alt="Erengül Buketi" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/erengul.jpeg" data-lightbox="erengul-group" data-title="Erengül Buketi">
+                                <img src="images/erengul.jpeg" alt="Erengül Buketi" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1044,32 +994,30 @@
                             <img src="images/erengul.jpeg" alt="Erengül Buketi">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Erengül Buketi</h3>
+                            <div class="price">2.500 TL</div>
+                            <p class="product-description">Özel erengül çiçekleri ile hazırlanmış şık buket. Zarif ve farklı bir hediye arayanlar için.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Erengül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 101 Gül Buketi -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>101 Gül Buketi</h3>
-                                <div class="price">8.600 TL</div>
-                                <p class="product-description">101 adet gülden oluşan muhteşem ve görkemli buket. Aşkın ve bağlılığın en güzel ifadesi.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=101%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/101gul.jpeg" data-lightbox="101gul-group" data-title="101 Gül Buketi">
-                                    <img src="images/101gul.jpeg" alt="101 Gül Buketi" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/101gul.jpeg" data-lightbox="101gul-group" data-title="101 Gül Buketi">
+                                <img src="images/101gul.jpeg" alt="101 Gül Buketi" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1077,32 +1025,30 @@
                             <img src="images/101gul.jpeg" alt="101 Gül Buketi">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>101 Gül Buketi</h3>
+                            <div class="price">8.600 TL</div>
+                            <p class="product-description">101 adet gülden oluşan muhteşem ve görkemli buket. Aşkın ve bağlılığın en güzel ifadesi.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=101%20Gül%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 51 Güllü Buket -->
                 <div class="product-card" id="gul-buketleri" data-category="gul-buketleri">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>51 Güllü Buket</h3>
-                                <div class="price">7.000 TL</div>
-                                <p class="product-description">51 adet gülden oluşan lüks ve şık buket. Büyük sevgi ve bağlılığın simgesi.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=51%20Güllü%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/51gul.jpeg" data-lightbox="51gul-group" data-title="51 Güllü Buket">
-                                    <img src="images/51gul.jpeg" alt="51 Güllü Buket" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/51gul.jpeg" data-lightbox="51gul-group" data-title="51 Güllü Buket">
+                                <img src="images/51gul.jpeg" alt="51 Güllü Buket" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1110,32 +1056,30 @@
                             <img src="images/51gul.jpeg" alt="51 Güllü Buket">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>51 Güllü Buket</h3>
+                            <div class="price">7.000 TL</div>
+                            <p class="product-description">51 adet gülden oluşan lüks ve şık buket. Büyük sevgi ve bağlılığın simgesi.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=51%20Güllü%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- İthal ve Yerli Karışık Krizantem Buketi -->
                 <div class="product-card" id="ithal-buketler" data-category="ithal-buketler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>İthal ve Yerli Karışık Krizantem Buketi</h3>
-                                <div class="price">1.300 TL</div>
-                                <p class="product-description">Orta boy, ithal ve yerli karışık krizantem (kasımpatı) buketi. Canlı renkleriyle her ortama neşe katıyor.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=İthal%20ve%20Yerli%20Karışık%20Krizantem%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/ithalyerli1.jpeg" data-lightbox="ithalyerli-group" data-title="İthal ve Yerli Karışık Krizantem Buketi">
-                                    <img src="images/ithalyerli1.jpeg" alt="İthal ve Yerli Karışık Krizantem Buketi" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/ithalyerli1.jpeg" data-lightbox="ithalyerli-group" data-title="İthal ve Yerli Karışık Krizantem Buketi">
+                                <img src="images/ithalyerli1.jpeg" alt="İthal ve Yerli Karışık Krizantem Buketi" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1152,32 +1096,30 @@
                         <a href="images/ithalyerli2.jpeg" data-lightbox="ithalyerli-group" data-title="İthal ve Yerli Karışık Krizantem Buketi" style="display:none;"></a>
                         <a href="images/ithalyerli3.jpeg" data-lightbox="ithalyerli-group" data-title="İthal ve Yerli Karışık Krizantem Buketi" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>İthal ve Yerli Karışık Krizantem Buketi</h3>
+                            <div class="price">1.300 TL</div>
+                            <p class="product-description">Orta boy, ithal ve yerli karışık krizantem (kasımpatı) buketi. Canlı renkleriyle her ortama neşe katıyor.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=İthal%20ve%20Yerli%20Karışık%20Krizantem%20Buketi%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Lisyantus Orta Boy Renkli Buket -->
                 <div class="product-card" id="ithal-buketler" data-category="ithal-buketler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Lisyantus Orta Boy Renkli Buket</h3>
-                                <div class="price">1.800 TL</div>
-                                <p class="product-description">Orta boy, renkli lisyantus çiçeklerinden oluşan şık buket. Zarif yapısı ve pastel renkleriyle dikkat çekiyor.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Lisyantus%20Orta%20Boy%20Renkli%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/lisyantus1.jpeg" data-lightbox="lisyantus-group" data-title="Lisyantus Orta Boy Renkli Buket">
-                                    <img src="images/lisyantus1.jpeg" alt="Lisyantus Orta Boy Renkli Buket" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/lisyantus1.jpeg" data-lightbox="lisyantus-group" data-title="Lisyantus Orta Boy Renkli Buket">
+                                <img src="images/lisyantus1.jpeg" alt="Lisyantus Orta Boy Renkli Buket" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1194,32 +1136,30 @@
                         <a href="images/lisyantus2.jpeg" data-lightbox="lisyantus-group" data-title="Lisyantus Orta Boy Renkli Buket" style="display:none;"></a>
                         <a href="images/lisyantus3.jpeg" data-lightbox="lisyantus-group" data-title="Lisyantus Orta Boy Renkli Buket" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Lisyantus Orta Boy Renkli Buket</h3>
+                            <div class="price">1.800 TL</div>
+                            <p class="product-description">Orta boy, renkli lisyantus çiçeklerinden oluşan şık buket. Zarif yapısı ve pastel renkleriyle dikkat çekiyor.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Lisyantus%20Orta%20Boy%20Renkli%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Kalp Kutu 31 Güllü Aranjman -->
                 <div class="product-card" id="kutu-aranjman">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Kalp Kutu 31 Güllü Aranjman</h3>
-                                <div class="price">4.000 TL</div>
-                                <p class="product-description">Kalp şeklinde kutuda 31 adet gülden oluşan özel aranjman. Aşkınızı ifade etmenin en romantik yolu.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Kalp%20Kutu%2031%20Güllü%20Aranjman%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/kalp1.jpeg" data-lightbox="kalp-group" data-title="Kalp Kutu 31 Güllü Aranjman">
-                                    <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/kalp1.jpeg" data-lightbox="kalp-group" data-title="Kalp Kutu 31 Güllü Aranjman">
+                                <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1227,32 +1167,30 @@
                             <img src="images/kalp1.jpeg" alt="Kalp Kutu 31 Güllü Aranjman">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Kalp Kutu 31 Güllü Aranjman</h3>
+                            <div class="price">4.000 TL</div>
+                            <p class="product-description">Kalp şeklinde kutuda 31 adet gülden oluşan özel aranjman. Aşkınızı ifade etmenin en romantik yolu.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Kalp%20Kutu%2031%20Güllü%20Aranjman%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Kokinalı Ayıcıklı Buket -->
                 <div class="product-card" id="ozel-urunler" data-category="ozel-urunler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Kokinalı Ayıcıklı Buket</h3>
-                                <div class="price">3.200 TL</div>
-                                <p class="product-description">Sevdiklerinize özel, kokinalı ayıcıklı buket. Çiçekler ve peluş ayıcığın mükemmel uyumu.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Kokinalı%20Ayıcıklı%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/kokoinali.jpeg" data-lightbox="kokoinali-group" data-title="Kokinalı Ayıcıklı Buket">
-                                    <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/kokoinali.jpeg" data-lightbox="kokoinali-group" data-title="Kokinalı Ayıcıklı Buket">
+                                <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1260,32 +1198,30 @@
                             <img src="images/kokoinali.jpeg" alt="Kokinalı Ayıcıklı Buket">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Kokinalı Ayıcıklı Buket</h3>
+                            <div class="price">3.200 TL</div>
+                            <p class="product-description">Sevdiklerinize özel, kokinalı ayıcıklı buket. Çiçekler ve peluş ayıcığın mükemmel uyumu.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Kokinalı%20Ayıcıklı%20Buket%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Büyük Boy Peluş Ayıcık -->
                 <div class="product-card" id="ozel-urunler" data-category="ozel-urunler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Büyük Boy Peluş Ayıcık</h3>
-                                <div class="price">3.500 TL</div>
-                                <p class="product-description">Sevdiklerinize hediye edebileceğiniz büyük boy peluş ayıcık. Yumuşak ve sevimli bir hediye.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Büyük%20Boy%20Peluş%20Ayıcık%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/ayicik.jpeg" data-lightbox="ayicik-group" data-title="Büyük Boy Peluş Ayıcık">
-                                    <img src="images/ayicik.jpeg" alt="Büyük Boy Peluş Ayıcık" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/ayicik.jpeg" data-lightbox="ayicik-group" data-title="Büyük Boy Peluş Ayıcık">
+                                <img src="images/ayicik.jpeg" alt="Büyük Boy Peluş Ayıcık" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1293,32 +1229,30 @@
                             <img src="images/ayicik.jpeg" alt="Büyük Boy Peluş Ayıcık">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Büyük Boy Peluş Ayıcık</h3>
+                            <div class="price">3.500 TL</div>
+                            <p class="product-description">Sevdiklerinize hediye edebileceğiniz büyük boy peluş ayıcık. Yumuşak ve sevimli bir hediye.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Büyük%20Boy%20Peluş%20Ayıcık%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Büyük Boy Peluş Ayıcık (Lisanslı) -->
                 <div class="product-card" id="ozel-urunler" data-category="ozel-urunler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Büyük Boy Peluş Ayıcık (Lisanslı)</h3>
-                                <div class="price">2.600 TL</div>
-                                <p class="product-description">Lisanslı, büyük boy peluş ayıcık. Kaliteli ve sevimli bir hediye, özel günler için ideal.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Büyük%20Boy%20Peluş%20Ayıcık%20(Lisanslı)%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/ayicik2.jpeg" data-lightbox="ayicik2-group" data-title="Büyük Boy Peluş Ayıcık (Lisanslı)">
-                                    <img src="images/ayicik2.jpeg" alt="Büyük Boy Peluş Ayıcık (Lisanslı)" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/ayicik2.jpeg" data-lightbox="ayicik2-group" data-title="Büyük Boy Peluş Ayıcık (Lisanslı)">
+                                <img src="images/ayicik2.jpeg" alt="Büyük Boy Peluş Ayıcık (Lisanslı)" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1326,32 +1260,30 @@
                             <img src="images/ayicik2.jpeg" alt="Büyük Boy Peluş Ayıcık (Lisanslı)">
                         </div>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Büyük Boy Peluş Ayıcık (Lisanslı)</h3>
+                            <div class="price">2.600 TL</div>
+                            <p class="product-description">Lisanslı, büyük boy peluş ayıcık. Kaliteli ve sevimli bir hediye, özel günler için ideal.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Büyük%20Boy%20Peluş%20Ayıcık%20(Lisanslı)%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Teraryum Çalışması -->
                 <div class="product-card" id="teraryum">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Teraryum Çalışması</h3>
-                                <div class="price">1.300 TL</div>
-                                <p class="product-description">Sukulentlerle hazırlanmış, özel teraryum çalışması. Minimalist ve doğal bir dekorasyon ürünü.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Teraryum%20Çalışması%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/tereryum1.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması (Sukulent)">
-                                    <img src="images/tereryum1.jpeg" alt="Teraryum Çalışması" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/tereryum1.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması (Sukulent)">
+                                <img src="images/tereryum1.jpeg" alt="Teraryum Çalışması" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1380,32 +1312,30 @@
                         <a href="images/tereryum5.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
                         <a href="images/tereryum6.jpeg" data-lightbox="teraryum-group" data-title="Teraryum Çalışması" style="display:none;"></a>
                     </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Teraryum Çalışması</h3>
+                            <div class="price">1.300 TL</div>
+                            <p class="product-description">Sukulentlerle hazırlanmış, özel teraryum çalışması. Minimalist ve doğal bir dekorasyon ürünü.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Teraryum%20Çalışması%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Araç Süsleme (en sona alındı) -->
                 <div class="product-card" id="ozel-urunler" data-category="ozel-urunler">
-                    <div class="product-content">
-                        <div class="product-info-container">
-                            <div class="product-info">
-                                <h3>Araç Süsleme</h3>
-                                <div class="price">3.000 TL'den başlayan fiyatlarla</div>
-                                <p class="product-description">Özel günleriniz için araç süsleme hizmeti. Düğün, nişan, sünnet ve diğer özel etkinliklerinizde unutulmaz bir görünüm.</p>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/905346032115?text=Araç%20Süsleme%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                                </a>
-                                <a href="tel:05346032115" class="btn btn-call">
-                                    <i class="fas fa-phone"></i> Ara
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-image-container">
-                            <div class="product-image">
-                                <a href="images/araba1.jpeg" data-lightbox="araba-group" data-title="Araç Süsleme">
-                                    <img src="images/araba1.jpeg" alt="Araç Süsleme" class="main-image">
-                                </a>
-                            </div>
+                    <div class="product-image-container">
+                        <div class="product-image">
+                            <a href="images/araba1.jpeg" data-lightbox="araba-group" data-title="Araç Süsleme">
+                                <img src="images/araba1.jpeg" alt="Araç Süsleme" class="main-image">
+                            </a>
                         </div>
                     </div>
                     <div class="thumbnail-gallery">
@@ -1421,6 +1351,21 @@
                         <!-- Hidden lightbox links -->
                         <a href="images/araba2.jpeg" data-lightbox="araba-group" data-title="Araç Süsleme" style="display:none;"></a>
                         <a href="images/araba3.jpeg" data-lightbox="araba-group" data-title="Araç Süsleme" style="display:none;"></a>
+                    </div>
+                    <div class="product-info-container">
+                        <div class="product-info">
+                            <h3>Araç Süsleme</h3>
+                            <div class="price">3.000 TL'den başlayan fiyatlarla</div>
+                            <p class="product-description">Özel günleriniz için araç süsleme hizmeti. Düğün, nişan, sünnet ve diğer özel etkinliklerinizde unutulmaz bir görünüm.</p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="https://wa.me/905346032115?text=Araç%20Süsleme%20hakkında%20bilgi%20almak%20istiyorum" class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
+                            </a>
+                            <a href="tel:05346032115" class="btn btn-call">
+                                <i class="fas fa-phone"></i> Ara
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1562,7 +1507,7 @@
                 mainImageLink.href = newImageSrc;
                 
                 // Update lightbox data
-                mainImageLink.setAttribute('data-lightbox', this.closest('.thumbnail-gallery').previousElementSibling.querySelector('.product-image a').getAttribute('data-lightbox'));
+                mainImageLink.setAttribute('data-lightbox', this.closest('.thumbnail-gallery').previousElementSibling.querySelector('a').getAttribute('data-lightbox'));
             });
         });
         
